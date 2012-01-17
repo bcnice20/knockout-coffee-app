@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+  <div id="container">
+    <h1></h1>
+    <div id="top">
+    </div>
+    <div id="sidebar">
+      <button id="reset" data-bind="click: reset">reset</button>
+    </div>
+    <div id="content">
+      <div id="devices">
+        <button data-bind="click: shooter"><img src="imgs/shooter.png"></img></button>
+        <button data-bind="click: shift"><img src="imgs/speedy.png"></img></button>
+        <button data-bind="click: evo"><img src="imgs/supersonic.png"></img></button>
+      </div>
+
+      <div id="device-list">
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2011 Brad Carter</p>
+    <footer>
+  </div>
+
+  <script type="text/template" id="shooter-temp">
+    <table>
+      <thead><tr>
+        <th>Name</th>
+        <th>Version</th>
+        <th>Link</th>
+      </tr></thead>
+      <tbody>
+          <% _.each(Devices.Shooter.Kernels, function(kern) { %>
+            <tr>
+              <td><%= kern.name %></td>
+              <td><%= kern.version %></td>
+              <td><%= kern.link %></td>
+            </tr>
+          <% }); %>
+      </tbody>
+    </table>
+  </script>
+  <script type="text/template" id="shift-temp">
+    <table>
+      <thead><tr>
+        <th>Name</th>
+        <th>Version</th>
+        <th>Link</th>
+      </tr></thead>
+      <tbody>
+          <% _.each(Devices.Shift.Kernels, function(kern) { %>
+            <tr>
+              <td><%= kern.name %></td>
+              <td><%= kern.version %></td>
+              <td><%= kern.link %></td>
+            </tr>
+          <% }); %>
+      </tbody>
+    </table>
+  </script>
+  <script type="text/template" id="evo-temp">
+    <table>
+      <thead><tr>
+        <th>Name</th>
+        <th>Version</th>
+        <th>Link</th>
+      </tr></thead>
+      <tbody>
+        <% _.each(Devices.Evo.Kernels, function(kern) { %>
+          <tr>
+            <td><%= kern.name %></td>
+            <td><%= kern.version %></td>
+            <td><%= kern.link %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </script>
+
+  <script src="js/jquery-1.7.1.min.js"></script>
+  <script src="js/underscore-min.js"></script>
+  <script src="js/knockout-2.0.0.js"></script>
+  <script src="js/devices.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
